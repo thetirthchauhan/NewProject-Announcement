@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+.project-countdown {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: auto;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('blured photo.png') center/cover no-repeat;
+    filter: blur(10px);
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.project-countdown-content {
+    max-width: 90%;
+    padding: 20px 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .project-countdown-content {
+        max-width: 100%;
+        padding: 20px 10px;
+    }
+}
+
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: slideIn 2s ease-out;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.highlight-date {
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-top: 10px;
+    color: white;
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease-out;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.countdown-timer div {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    margin: 0 5px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    width: 70px;
+    min-width: 60px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+
+.countdown-timer p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: white;
+    word-break: break-word;
+}
+
+.countdown-timer span {
+    font-size: 0.9rem;
+    color: white;
+}
+
+.promo-title {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    font-weight: bold;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-top: 20px;
+    color: #ffd700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.stay-tuned {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.visioned-by {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: linear-gradient(90deg, #ffffff, #fffb07, #ff2600, #ff0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 2s infinite alternate;
+    padding: 0 10px;
+}
+
+@keyframes textGlow {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.highlight {
+    font-weight: bold;
+    color: #ffd700;
+    text-transform: uppercase;
+}
+
+/* General styles for the balloons */
+.balloon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rain 20s linear infinite;
+}
+
+.balloon-left {
+    left: 10%;
+    animation: wave 8s ease-in-out infinite;
+}
+
+.balloon-right {
+    right: 10%;
+    animation: wave 6s ease-in-out infinite;
+}
+
+.balloon h1 {
+    font-size: 8rem;
+}
+
+/* Keyframes for the waving animation */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+
+/* Keyframes for the rain effect (upward motion) */
+@keyframes rain {
+    0% {
+        transform: translateY(100vh) translateX(0); /* Start at the bottom */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%) translateX(-50px); /* Move upward */
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .balloon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .balloon h1 {
+        font-size: 3rem;
+    }
+
+    .balloon-left {
+        left: 5%;
+    }
+
+
+    .balloon-right {
+        right: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .balloon {
+        width: 40px;
+        height: 300px;
+    }
+
+    .balloon h1 {
+        font-size: 3.5rem;
+        height: 200px;
+    }
+
+    .balloon-left {
+        left: 3%;
+    }
+
+    .balloon-right {
+        right: 3%;
+    }
+}
+
+/* Rain effect for party emojis */
+@keyframes rainParty {
+    0% {
+        transform: translateY(100vh) translateX(-80px);
+        opacity: 0;
+    }
+    
+    25% {
+        transform: translateY(50vh) translateX(-40px);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(-50vh) translateX(40px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(80px);
+        opacity: 0;
+    }
+}
+
+.party {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    font-size: 2rem;
+    animation: rainParty 8s linear infinite;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .countdown-timer {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .countdown-timer div {
+        width: 60px;
+        padding: 10px;
+        margin: 0 4px;
+    }
+
+    .countdown-timer p {
+        font-size: 1rem;
+    }
+
+    .countdown-timer span {
+        font-size: 0.8rem;
+    }
+
+    .promo-title {
+        font-size: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1.2rem;
+    }
+
+    .stay-tuned {
+        font-size: 1.3rem;
+    }
+
+    .balloon {
+        bottom: 15%;
+    }
+
+    .visioned-by {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        bottom: 5px;
+        padding: 0 10px;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer a {
+    color: #2fff00;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover {
+    color: #0040ff;
+    
+}
