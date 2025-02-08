@@ -29,6 +29,7 @@ body {
     background: url('blured photo.png') center/cover no-repeat;
     filter: blur(10px);
     z-index: -2;
+    object-fit: cover;
 }
 
 .overlay {
